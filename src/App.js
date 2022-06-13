@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext } from 'react';
+import Navbar from './components/navbar/Navbar';
+import Grid from './components/grid/Grid';
+import './app.css';
+
+const wordle = {
+  wordle: 'amigo',
+  wordsUsed: [],
+  letterUsed: [],
+  tries: 6,
+};
+
+const WordleContext = createContext(wordle);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WordleContext.Provider value={wordle}>
+      <div className="container">
+        <Navbar />
+        <hr className="border" />
+        <Grid />
+      </div>
+    </WordleContext.Provider>
   );
 }
 
