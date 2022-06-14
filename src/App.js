@@ -1,26 +1,18 @@
-import { createContext } from 'react';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import Navbar from './components/navbar/Navbar';
 import Grid from './components/grid/Grid';
 import './app.css';
 
-const wordle = {
-  wordle: 'amigo',
-  wordsUsed: [],
-  letterUsed: [],
-  tries: 6,
-};
-
-const WordleContext = createContext(wordle);
-
 function App() {
   return (
-    <WordleContext.Provider value={wordle}>
-      <div className="container">
-        <Navbar />
-        <hr className="border" />
+    <div className="container">
+      <Navbar />
+      <hr className="border" />
+      <Provider store={store}>
         <Grid />
-      </div>
-    </WordleContext.Provider>
+      </Provider>
+    </div>
   );
 }
 
