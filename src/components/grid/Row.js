@@ -5,7 +5,7 @@ import './grid.css';
 function Row() {
   const store = useStore();
   const { wordle } = store.getState();
-  const lengthWord = wordle.length + 1;
+  const lengthWord = wordle.length;
 
   return (
     <div className="row">
