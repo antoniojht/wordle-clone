@@ -4,11 +4,8 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+  height: calc(100vh - 3px);
+  position: relative;
 }
 
 .mr-5 {
