@@ -1,5 +1,16 @@
-const addWord = () => {
-  console.log('qwer');
-};
+import types from '../types/typesActions';
 
-export default addWord;
+export const addLetter = (letter) => ({
+  type: types.addLetter,
+  payload: {
+    letter,
+    valid: false,
+  },
+});
+
+export const addWord = (word) => ({
+  type: types.addWordUsed,
+  payload: {
+    word,
+  },
+});

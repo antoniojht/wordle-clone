@@ -11,8 +11,9 @@ const initialState = {
   wordle: 'amigo',
   attemps: 6,
   life: 6,
-  lettersUsed: [{}],
+  lettersUsed: [],
   wordsUsed: [],
+  isCorrect: false,
 };
 
 // eslint-disable-next-line default-param-last
@@ -24,14 +25,22 @@ export const gameReducer = (state = initialState, action) => {
         life: action.payload.life - 1,
       };
     case types.addLetter:
+      if (state.wordle.includes(action.payload.letter)) {
+        action.payload.valid = true;
+      }
+
       return {
         ...state,
-        letterUsed: [...action.payload, action.payload.letterUsed],
+        lettersUsed: [...state.lettersUsed, action.payload],
       };
     case types.addWordUsed:
+      if (state.wordle === action.payload.word) {
+        state.isCorrect = true;
+      }
+
       return {
         ...state,
-        wordsUsed: [...action.payload, action.payload.wordsUsed],
+        wordsUsed: [...state.wordsUsed, action.payload.word],
       };
     default:
       return state;
