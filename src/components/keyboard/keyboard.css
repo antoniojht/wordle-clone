@@ -1,0 +1,20 @@
+/* KEYBOARD */
+.keyboard {
+  /* TODO: posittion at bottom without using margin */
+  margin-top: 490px;
+  width: 512px;
+}
+
+/* KEY */
+.letter {
+  display: inline-block;
+  padding: 18px;
+  margin: 2px;
+  background-color: #E5E6E9;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+}

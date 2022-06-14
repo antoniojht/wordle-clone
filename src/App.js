@@ -3,16 +3,18 @@ import store from './store/store';
 import Navbar from './components/navbar/Navbar';
 import Grid from './components/grid/Grid';
 import './app.css';
+import Keyboard from './components/keyboard/Keyboard';
 
 function App() {
   return (
-    <div className="container">
-      <Navbar />
-      <hr className="border" />
-      <Provider store={store}>
+    <Provider store={store}>
+      <div className="container">
+        <Navbar />
+        <hr className="border" />
         <Grid />
-      </Provider>
-    </div>
+      </div>
+      <Keyboard />
+    </Provider>
   );
 }
 
