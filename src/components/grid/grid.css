@@ -5,7 +5,15 @@
 
 
 /* ROW */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.row > .square {
+  margin: 2px;
+}
 
 /* CELL */
 .square {

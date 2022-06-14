@@ -1,23 +1,37 @@
 import types from '../types/typesActions';
 
+// EXAMPLE
 //   wordle: 'amigo',
 //   attemps: 6,
-//   lettersUsed: ['r','o','s','a','s'],
-//   wordsUsed: [{letter:'r', valid: false, ...}],
+//   life: 5
+//   wordsUsed: ['rosas'],
+//   letterUsed: [{letter:'r', valid: false, ...}]
 
 const initialState = {
   wordle: 'amigo',
   attemps: 6,
-  lettersUsed: [],
-  wordsUsed: [{}],
+  life: 6,
+  lettersUsed: [{}],
+  wordsUsed: [],
 };
 
-export const gameReducer = (action, state = initialState) => {
+// eslint-disable-next-line default-param-last
+export const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.decreaseAttemp:
       return {
-        ...action.payload,
-        attemps: action.payload.attemps - 1,
+        ...state,
+        life: action.payload.life - 1,
+      };
+    case types.addLetter:
+      return {
+        ...state,
+        letterUsed: [...action.payload, action.payload.letterUsed],
+      };
+    case types.addWordUsed:
+      return {
+        ...state,
+        wordsUsed: [...action.payload, action.payload.wordsUsed],
       };
     default:
       return state;

@@ -26,5 +26,6 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
     'react/jsx-filename-extension': RULES.OFF,
+    'react/no-array-index-key': RULES.OFF,
   },
 };
