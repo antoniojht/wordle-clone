@@ -17,7 +17,5 @@ export const addWord = (word) => ({
 
 export const actualWord = (word) => ({
   type: types.actualWord,
-  payload: {
-    actualWord: word,
-  },
+  payload: word,
 });

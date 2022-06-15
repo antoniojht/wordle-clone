@@ -10,10 +10,6 @@ function Keyboard() {
     ['enviar', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'borrar'],
   ];
 
-  useEffect(() => {
-    console.log('keyboard component');
-  }, []);
-
   return (
     <div className="keyboard">
       {

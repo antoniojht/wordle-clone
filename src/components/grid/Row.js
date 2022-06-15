@@ -1,15 +1,13 @@
-import { useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Cell from './Cell';
 import './grid.css';
 
 function Row() {
-  const store = useStore();
-  const { wordle } = store.getState();
-  const lengthWord = wordle.length;
+  const wordle = useSelector((state) => state.game.wordle);
 
   return (
     <div className="row">
-      {[...Array(lengthWord)].map((_, i) => <Cell key={i} />)}
+      {[...Array(wordle.length)].map((_, i) => <Cell key={i} />)}
     </div>
   );
 }

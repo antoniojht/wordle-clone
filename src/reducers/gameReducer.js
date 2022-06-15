@@ -13,12 +13,11 @@ const initialState = {
   life: 6,
   lettersUsed: [],
   wordsUsed: [],
-  actualRow: [],
   isCorrect: false,
 };
 
 // eslint-disable-next-line default-param-last
-export const gameReducer = (state = initialState, action) => {
+const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.decreaseAttemp:
       return {
@@ -47,11 +46,6 @@ export const gameReducer = (state = initialState, action) => {
         wordsUsed: [...state.wordsUsed, action.payload.word],
       };
 
-    case types.actualWord:
-      return {
-        ...state,
-        actualRow: action.payload.actualWord,
-      };
     default:
       return state;
   }

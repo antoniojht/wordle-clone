@@ -1,10 +1,9 @@
-import { useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Row from './Row';
 import './grid.css';
 
 function Grid() {
-  const store = useStore();
-  const { attemps } = store.getState();
+  const attemps = useSelector((state) => state.game.attemps);
 
   return (
     <div className="grid">

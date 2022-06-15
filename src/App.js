@@ -14,28 +14,24 @@ function App() {
   const [word, setWord] = useState([]);
 
   // TODO: Validations: Number -> error message.
-  // TODO: Extract to custom hook
+  // TODO: Extract to new action/reducer into switch case
   const handleKeyDown = (event) => {
     if (event.key === 'Backspace' && word.length > 0) {
       const wordClone = [...word];
       wordClone.pop();
       setWord(wordClone);
     } else if (event.key === 'Enter' && word.length === 5) {
-      console.log('Enter: ', event.key);
       dispatch(addWord(word.join()));
     } else {
-      console.log('insert: ', event.key);
-      setWord([...word, event.key]);
-      console.log(word);
-      dispatch(actualWord(word));
+      // setWord((prevWord) => [...prevWord, event.key]);
+      dispatch(actualWord(event.key));
     }
   };
 
   useEffect(() => {
-    console.log('useEffect');
-    // document.removeEventListener('keydown', handleKeyDown);
     document.addEventListener('keydown', handleKeyDown);
     return () => {
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
