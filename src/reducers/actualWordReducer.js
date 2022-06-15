@@ -7,6 +7,8 @@ const actualWordReducer = (state = initialState, action) => {
     case types.actualWord:
       return [...state, action.payload];
 
+    case types.popActualWord:
+      return state.slice(0, -1);
     default:
       return state;
   }

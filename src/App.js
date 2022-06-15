@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addWord, actualWord } from './actions/wordle';
+import { actualWord, popActualWord } from './actions/wordle';
 
 import Navbar from './components/navbar/Navbar';
 import Grid from './components/grid/Grid';
@@ -11,19 +11,15 @@ import './app.css';
 
 function App() {
   const dispatch = useDispatch();
-  const [word, setWord] = useState([]);
 
   // TODO: Validations: Number -> error message.
   // TODO: Extract to new action/reducer into switch case
   const handleKeyDown = (event) => {
-    if (event.key === 'Backspace' && word.length > 0) {
-      const wordClone = [...word];
-      wordClone.pop();
-      setWord(wordClone);
-    } else if (event.key === 'Enter' && word.length === 5) {
-      dispatch(addWord(word.join()));
+    if (event.key === 'Backspace') {
+      dispatch(popActualWord());
+    } else if (event.key === 'Enter') {
+      // dispatch(addWord(word.join()));
     } else {
-      // setWord((prevWord) => [...prevWord, event.key]);
       dispatch(actualWord(event.key));
     }
   };

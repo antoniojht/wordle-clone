@@ -19,3 +19,7 @@ export const actualWord = (word) => ({
   type: types.actualWord,
   payload: word,
 });
+
+export const popActualWord = () => ({
+  type: types.popActualWord,
+});
