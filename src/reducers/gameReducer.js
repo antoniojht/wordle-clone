@@ -13,6 +13,7 @@ const initialState = {
   life: 6,
   lettersUsed: [],
   wordsUsed: [],
+  actualRow: [],
   isCorrect: false,
 };
 
@@ -44,6 +45,12 @@ export const gameReducer = (state = initialState, action) => {
       return {
         ...state,
         wordsUsed: [...state.wordsUsed, action.payload.word],
+      };
+
+    case types.actualWord:
+      return {
+        ...state,
+        actualRow: action.payload.actualWord,
       };
     default:
       return state;

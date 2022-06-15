@@ -14,3 +14,10 @@ export const addWord = (word) => ({
     word,
   },
 });
+
+export const actualWord = (word) => ({
+  type: types.actualWord,
+  payload: {
+    actualWord: word,
+  },
+});
