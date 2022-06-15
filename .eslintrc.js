@@ -29,5 +29,6 @@ module.exports = {
     'react/no-array-index-key': RULES.OFF,
     'react/prop-types': RULES.OFF,
     'no-param-reassign': RULES.OFF,
+    'no-unused-vars': RULES.OFF,
   },
 };

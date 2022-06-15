@@ -36,6 +36,9 @@ export const gameReducer = (state = initialState, action) => {
     case types.addWordUsed:
       if (state.wordle === action.payload.word) {
         state.isCorrect = true;
+      } else {
+        state.isCorrect = true;
+        state.life -= 1;
       }
 
       return {
