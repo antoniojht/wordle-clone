@@ -1,9 +1,13 @@
 import './grid.css';
 
-function Cell({ letter = '' }) {
+function Cell({ letter = '', actual = false }) {
   return (
     <div className="square">
-      <p>{letter.letter}</p>
+      <p className="square__letter">
+        {
+        actual ? letter : letter.letter
+      }
+      </p>
     </div>
   );
 }

@@ -3,22 +3,30 @@ import types from '../types/typesActions';
 // EXAMPLE
 //   wordle: 'amigo',
 //   attemps: [['rosas'],[],...],
-//   life: 5
+//   life: 1
 //   wordsUsed: ['rosas'],   (Refactor this to array of attemps)
 //   letterUsed: [{letter:'r', valid: false, ...}]
 
+// TODO: Init attemps to empty array.
 const initialState = {
   wordle: 'amigo',
   attemps: [
     [
-      { letter: 'r', valid: false },
-      { letter: 'o', valid: false },
-      { letter: 's', valid: false },
-      { letter: 'a', valid: false },
-      { letter: 's', valid: false },
-    ], [], [], [], [], []],
-  life: 6,
+      { letter: 'r', valid: false, position: false },
+      { letter: 'o', valid: true, position: false },
+      { letter: 's', valid: false, position: false },
+      { letter: 'a', valid: true, position: false },
+      { letter: 's', valid: false, position: false },
+    ], [
+      { letter: 'p', valid: false, position: false },
+      { letter: 'a', valid: true, position: false },
+      { letter: 'd', valid: false, position: false },
+      { letter: 'r', valid: false, position: false },
+      { letter: 'e', valid: false, position: false },
+    ], [], [], [], []],
+  life: 2,
   lettersUsed: [],
+  // remove wordsUsed by attemps.
   wordsUsed: [],
   isCorrect: false,
 };
@@ -45,7 +53,7 @@ const gameReducer = (state = initialState, action) => {
         state.isCorrect = true;
       } else {
         state.isCorrect = true;
-        state.life -= 1;
+        state.life += 1;
       }
 
       return {
