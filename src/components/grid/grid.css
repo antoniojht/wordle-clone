@@ -25,3 +25,11 @@
   height: 62px;
   border: 2px solid rgb(211, 214, 218);
 }
+
+.square p {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

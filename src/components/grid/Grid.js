@@ -8,7 +8,7 @@ function Grid() {
   return (
     <div className="grid">
       {
-        [...Array(attemps)].map((_, i) => <Row key={i} />)
+        attemps.map((word, i) => <Row key={i} word={word} row={i} />)
       }
     </div>
   );

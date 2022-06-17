@@ -1,8 +1,10 @@
 import './grid.css';
 
-function Cell() {
+function Cell({ letter = '' }) {
   return (
-    <div className="square" />
+    <div className="square">
+      <p>{letter.letter}</p>
+    </div>
   );
 }
 

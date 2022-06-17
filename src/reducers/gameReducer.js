@@ -2,14 +2,21 @@ import types from '../types/typesActions';
 
 // EXAMPLE
 //   wordle: 'amigo',
-//   attemps: 6,
+//   attemps: [['rosas'],[],...],
 //   life: 5
-//   wordsUsed: ['rosas'],
+//   wordsUsed: ['rosas'],   (Refactor this to array of attemps)
 //   letterUsed: [{letter:'r', valid: false, ...}]
 
 const initialState = {
   wordle: 'amigo',
-  attemps: 6,
+  attemps: [
+    [
+      { letter: 'r', valid: false },
+      { letter: 'o', valid: false },
+      { letter: 's', valid: false },
+      { letter: 'a', valid: false },
+      { letter: 's', valid: false },
+    ], [], [], [], [], []],
   life: 6,
   lettersUsed: [],
   wordsUsed: [],
