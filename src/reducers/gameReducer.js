@@ -1,3 +1,4 @@
+import checkWord from '../helpers/checkWord';
 import types from '../types/typesActions';
 
 // EXAMPLE
@@ -48,18 +49,25 @@ const gameReducer = (state = initialState, action) => {
         ...state,
         lettersUsed: [...state.lettersUsed, action.payload],
       };
-    case types.addWordUsed:
-      if (state.wordle === action.payload.word) {
-        state.isCorrect = true;
-      } else {
-        state.isCorrect = true;
-        state.life += 1;
-      }
+    case types.addWordUsed: {
+      const wordsCopy = [...state.attemps];
+      const wordChecked = checkWord(state.wordle, action.payload.word);
+
+      wordsCopy[state.life] = wordChecked;
+
+      // TODO: Check life
+      // if (state.wordle === action.payload.word) {
+      //   state.isCorrect = true;
+      // } else {
+      //   state.isCorrect = true;
+      //   state.life += 1;
+      // }
 
       return {
         ...state,
-        wordsUsed: [...state.wordsUsed, action.payload.word],
+        attemps: [...wordsCopy],
       };
+    }
 
     default:
       return state;

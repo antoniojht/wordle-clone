@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actualWord, popActualWord } from './actions/wordle';
+import { actualWord, popActualWord, addWord } from './actions/wordle';
 
 import Navbar from './components/navbar/Navbar';
 import Grid from './components/grid/Grid';
@@ -11,6 +11,7 @@ import './app.css';
 
 function App() {
   const wordle = useSelector((state) => state.game.wordle);
+  const actual = useSelector((state) => state.actualWord);
   const [counterLetter, setCounterLetter] = useState(0);
 
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function App() {
       dispatch(popActualWord());
       setCounterLetter(counterLetter - 1);
     } else if (event.key === 'Enter') {
-      // dispatch(addWord(word.join()));
+      dispatch(addWord(actual));
     } else if (/^[a-zA-Z]{1}$/.test(event.key) && counterLetter < wordle.length) {
       dispatch(actualWord(event.key));
       setCounterLetter((prev) => prev + 1);
