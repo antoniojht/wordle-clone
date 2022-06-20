@@ -31,20 +31,30 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.875rem;
 }
 
-.square__letter--writting {
+.square--writting {
+  border: 2px solid #787c7e;
 
 }
 
-.square__letter--valid {
-  
+.square--valid {
+  background-color: #6aaa64;
+  border: 2px solid #6aaa64;
+  color: white;
 }
 
-.square__letter--position {
-  
+.square--position {
+  background-color: #c9b458;
+  border: 2px solid #c9b458;
+  color: white;
 }
 
-.square__letter--invalid {
-  
+.square--invalid {
+  background-color: #787c7e;
+  border: 2px solid #787c7e;
+  color: white;
 }
