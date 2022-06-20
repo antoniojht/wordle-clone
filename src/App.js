@@ -26,6 +26,7 @@ function App() {
     } else if (event.key === 'Enter') {
       dispatch(addWord(actual));
       dispatch(resetActualWord());
+      setCounterLetter(() => 0);
     } else if (/^[a-zA-Z]{1}$/.test(event.key) && counterLetter < wordle.length) {
       dispatch(actualWord(event.key));
       setCounterLetter((prev) => prev + 1);
