@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { actualWord, popActualWord } from './actions/wordle';
@@ -11,18 +11,20 @@ import './app.css';
 
 function App() {
   const wordle = useSelector((state) => state.game.wordle);
-  const actualRow = useSelector((state) => state.actualWord);
+  const [counterLetter, setCounterLetter] = useState(0);
 
   const dispatch = useDispatch();
 
-  // TODO: Extract to new action/reducer into switch case
+  // TODO: extract
   const handleKeyDown = (event) => {
     if (event.key === 'Backspace') {
       dispatch(popActualWord());
+      setCounterLetter(counterLetter - 1);
     } else if (event.key === 'Enter') {
       // dispatch(addWord(word.join()));
-    } else if (/^[a-zA-Z]{1}$/.test(event.key)) {
+    } else if (/^[a-zA-Z]{1}$/.test(event.key) && counterLetter < wordle.length) {
       dispatch(actualWord(event.key));
+      setCounterLetter((prev) => prev + 1);
     } else {
       event.preventDefault();
     }
@@ -33,7 +35,7 @@ function App() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  });
 
   return (
     <>
