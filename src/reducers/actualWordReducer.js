@@ -9,6 +9,10 @@ const actualWordReducer = (state = initialState, action) => {
 
     case types.popActualWord:
       return state.slice(0, -1);
+
+    case types.resetActualWord:
+      return [];
+
     default:
       return state;
   }

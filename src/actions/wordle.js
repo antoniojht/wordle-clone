@@ -23,3 +23,7 @@ export const actualWord = (word) => ({
 export const popActualWord = () => ({
   type: types.popActualWord,
 });
+
+export const resetActualWord = () => ({
+  type: types.resetActualWord,
+});

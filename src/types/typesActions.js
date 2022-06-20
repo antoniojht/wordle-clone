@@ -4,6 +4,7 @@ const types = {
   addWordUsed: 'addWordUsed',
   actualWord: 'actualWord',
   popActualWord: 'popActualWord',
+  resetActualWord: 'resetActualWord',
 };
 
 export default types;

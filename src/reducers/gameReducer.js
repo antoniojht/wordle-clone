@@ -55,16 +55,10 @@ const gameReducer = (state = initialState, action) => {
 
       wordsCopy[state.life] = wordChecked;
 
-      // TODO: Check life
-      // if (state.wordle === action.payload.word) {
-      //   state.isCorrect = true;
-      // } else {
-      //   state.isCorrect = true;
-      //   state.life += 1;
-      // }
-
       return {
         ...state,
+        life: state.life + 1,
+        isCorrect: state.wordle === action.payload.word.join(''),
         attemps: [...wordsCopy],
       };
     }
