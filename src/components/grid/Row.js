@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Cell from './Cell';
 import './grid.css';
@@ -8,9 +8,11 @@ function Row({ word, row }) {
   const actualWord = useSelector((state) => state.actualWord);
   const life = useSelector((state) => state.game.life);
 
+  const [actualRow, setActualRow] = useState([]);
+
   useEffect(() => {
-    // FIX: fill actualWord for each change
-    actualWord.fill('', actualWord.length, wordle);
+    const emptyCells = [...Array(wordle.length - actualWord.length)].map(() => '');
+    setActualRow([...actualWord, ...emptyCells]);
   }, [actualWord]);
 
   if (word.length === 5) {
@@ -26,7 +28,7 @@ function Row({ word, row }) {
     return (
       <div className="row">
         {
-          actualWord.map((letter, i) => <Cell key={i} letter={letter} actual />)
+          actualRow.map((letter, i) => <Cell key={i} letter={letter} actual />)
         }
       </div>
     );
