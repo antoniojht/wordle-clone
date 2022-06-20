@@ -1,3 +1,4 @@
+import checkLetter from '../helpers/checkLetter';
 import checkWord from '../helpers/checkWord';
 import types from '../types/typesActions';
 
@@ -8,27 +9,12 @@ import types from '../types/typesActions';
 //   wordsUsed: ['rosas'],   (Refactor this to array of attemps)
 //   letterUsed: [{letter:'r', valid: false, ...}]
 
-// TODO: Init attemps to empty array.
 const initialState = {
   wordle: 'amigo',
   attemps: [
-    [
-      { letter: 'r', valid: false, position: false },
-      { letter: 'o', valid: true, position: false },
-      { letter: 's', valid: false, position: false },
-      { letter: 'a', valid: true, position: false },
-      { letter: 's', valid: false, position: false },
-    ], [
-      { letter: 'p', valid: false, position: false },
-      { letter: 'a', valid: true, position: false },
-      { letter: 'd', valid: false, position: false },
-      { letter: 'r', valid: false, position: false },
-      { letter: 'e', valid: false, position: false },
-    ], [], [], [], []],
-  life: 2,
+    [], [], [], [], [], []],
+  life: 0,
   lettersUsed: [],
-  // remove wordsUsed by attemps.
-  wordsUsed: [],
   isCorrect: false,
 };
 
@@ -40,19 +26,16 @@ const gameReducer = (state = initialState, action) => {
         ...state,
         life: action.payload.life - 1,
       };
-    case types.addLetter:
-      if (state.wordle.includes(action.payload.letter)) {
-        action.payload.valid = true;
-      }
-
+    case types.addLetter: {
+      const letters = checkLetter(state.attemps);
       return {
         ...state,
-        lettersUsed: [...state.lettersUsed, action.payload],
+        lettersUsed: letters,
       };
+    }
     case types.addWordUsed: {
       const wordsCopy = [...state.attemps];
       const wordChecked = checkWord(state.wordle, action.payload.word);
-
       wordsCopy[state.life] = wordChecked;
 
       return {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  actualWord, popActualWord, addWord, resetActualWord,
+  actualWord, popActualWord, addWord, resetActualWord, addLetter,
 } from './actions/wordle';
 
 import Navbar from './components/navbar/Navbar';
@@ -26,6 +26,7 @@ function App() {
     } else if (event.key === 'Enter') {
       dispatch(addWord(actual));
       dispatch(resetActualWord());
+      dispatch(addLetter());
       setCounterLetter(() => 0);
     } else if (/^[a-zA-Z]{1}$/.test(event.key) && counterLetter < wordle.length) {
       dispatch(actualWord(event.key));

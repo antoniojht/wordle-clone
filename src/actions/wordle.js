@@ -1,11 +1,7 @@
 import types from '../types/typesActions';
 
-export const addLetter = (letter) => ({
+export const addLetter = () => ({
   type: types.addLetter,
-  payload: {
-    letter,
-    valid: false,
-  },
 });
 
 export const addWord = (word) => ({
