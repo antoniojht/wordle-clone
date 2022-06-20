@@ -6,8 +6,10 @@ function Cell({ letter = '', actual = false }) {
     {
       square__letter: true,
       'square--invalid': letter && !letter.valid && !actual,
-      'square--position': letter && letter.valid && !letter.position && !actual,
       'square--valid': letter && letter.valid && letter.position && !actual,
+      'square--position': letter && letter.valid && !letter.position && !actual,
+      'square--border': (!actual && letter.length === 0) || (actual && letter.length === 0),
+      'square--writting': actual && letter.length > 0,
     },
   );
   return (

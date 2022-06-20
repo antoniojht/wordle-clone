@@ -19,10 +19,13 @@
 }
 
 /* CELL */
+.square--border {
+  border: 2px solid rgb(211, 214, 218);
+}
+
 .square {
   width: 62px;
   height: 62px;
-  border: 2px solid rgb(211, 214, 218);
 }
 
 .square__letter {
