@@ -1,31 +1,31 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import './keyboard.css';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
+import classNames from 'classnames';
 import { FaStepBackward } from 'react-icons/fa';
-import { addLetter, addWord } from '../../actions/wordle';
+
+import './keyboard.css';
 
 function Key({ letter }) {
-  const dispatch = useDispatch();
+  const letterUsed = useSelector((state) => state.game.lettersUsed);
 
-  const handleClick = (letterPressed) => {
-    if (letterPressed === 'enviar') {
-      dispatch(addWord('prueba'));
-    } else {
-      dispatch(addLetter(letterPressed));
-    }
-  };
+  let obj = letterUsed.find((data) => data.letter === letter && data.position);
 
-  /*
-    press enter:
-    onKeyPress and add the key pressed.
-    add to wordsUsed
-    Limit the number to length
-    check solution
-    print colors by user's solution
-  */
+  if (!obj) {
+    obj = letterUsed.find((data) => data.letter === letter && !data.position);
+  }
+
+  const keyClass = classNames(
+    {
+      letter: true,
+      'letter--invalid': !obj?.valid,
+      'letter--valid': obj?.valid && obj.position,
+      'letter--position': obj?.valid && !obj.position,
+    },
+  );
 
   return (
-    <button type="button" className="letter" onClick={() => handleClick(letter)}>
+    <button type="button" className={keyClass}>
       {(letter === 'borrar') ? <FaStepBackward /> : letter.toUpperCase()}
     </button>
   );
