@@ -2,13 +2,6 @@ import checkLetter from '../helpers/checkLetter';
 import checkWord from '../helpers/checkWord';
 import types from '../types/typesActions';
 
-// EXAMPLE
-//   wordle: 'amigo',
-//   attemps: [['rosas'],[],...],
-//   life: 1
-//   wordsUsed: ['rosas'],   (Refactor this to array of attemps)
-//   letterUsed: [{letter:'r', valid: false, ...}]
-
 const initialState = {
   wordle: 'amigo',
   attemps: [
