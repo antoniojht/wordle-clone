@@ -13,7 +13,9 @@ import './app.css';
 import possibleWords from './helpers/possibleWords';
 
 function App() {
-  const { wordle, life, attemps } = useSelector((state) => state.game);
+  const {
+    wordle, life, attemps, isCorrect,
+  } = useSelector((state) => state.game);
   const actual = useSelector((state) => state.actualWord);
   const [counterLetter, setCounterLetter] = useState(0);
   const [error, setError] = useState('');
@@ -22,7 +24,13 @@ function App() {
 
   // TODO: extract
   const handleKeyDown = (event) => {
+    if (isCorrect) {
+      event.preventDefault();
+      return;
+    }
+
     setError('');
+
     if (event.key === 'Backspace') {
       dispatch(popActualWord());
       setCounterLetter(counterLetter - 1);
