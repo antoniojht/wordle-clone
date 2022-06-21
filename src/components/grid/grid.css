@@ -24,8 +24,8 @@
 }
 
 .square {
-  width: 62px;
-  height: 62px;
+  width: 42px;
+  height: 42px;
 }
 
 .square__letter {
@@ -41,6 +41,7 @@
 
 .square--writting {
   border: 2px solid #787c7e;
+  animation: pop 0.3s linear 1;
 
 }
 
@@ -60,4 +61,37 @@
   background-color: #787c7e;
   border: 2px solid #787c7e;
   color: white;
+}
+
+.square0 {
+  animation: flip 450ms ease;
+}
+
+.square1 {
+  animation: flip 700ms ease;
+}
+
+.square2 {
+  animation: flip 850ms ease;
+}
+
+.square3 {
+  animation: flip 900ms ease;
+}
+
+.square4 {
+  animation: flip 1150ms ease;
+}
+
+@keyframes pop{
+  50%  {transform: scale(1.2);}
+}
+
+@keyframes flip{
+  from{
+   transform: rotateX(180deg);
+ }
+  to{
+    transform: rotateX(0deg);
+ }
 }

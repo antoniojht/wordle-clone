@@ -19,7 +19,7 @@ function Row({ word, row }) {
     return (
       <div className="row">
         {
-          word.map((letter, i) => <Cell key={i} letter={letter} />)
+          word.map((letter, i) => <Cell key={i} letter={letter} cellId={i} />)
         }
       </div>
     );
