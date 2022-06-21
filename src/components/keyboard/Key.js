@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import classNames from 'classnames';
@@ -18,7 +18,7 @@ function Key({ letter }) {
   const keyClass = classNames(
     {
       letter: true,
-      'letter--invalid': !obj?.valid,
+      'letter--invalid': obj && !obj?.valid && !obj?.position,
       'letter--valid': obj?.valid && obj.position,
       'letter--position': obj?.valid && !obj.position,
     },
