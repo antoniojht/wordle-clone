@@ -4,9 +4,10 @@ body {
 }
 
 .container {
-  height: calc(100vh - 3px);
-  position: relative;
-  min-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
 .mr-5 {

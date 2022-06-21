@@ -1,9 +1,11 @@
 import React from 'react';
 import Key from './Key';
 
+import './keyboard.css';
+
 function KeyRow({ row }) {
   return (
-    <div className="row">
+    <div className="keyboard__row">
       {
         row.map((letter, i) => <Key letter={letter} key={i} />)
       }
