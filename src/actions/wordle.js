@@ -11,6 +11,17 @@ export const addWord = (word) => ({
   },
 });
 
+export const addError = (error) => ({
+  type: types.addError,
+  payload: {
+    error,
+  },
+});
+
+export const removeError = () => ({
+  type: types.removeError,
+});
+
 export const actualWord = (word) => ({
   type: types.actualWord,
   payload: word,

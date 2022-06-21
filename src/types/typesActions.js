@@ -5,6 +5,8 @@ const types = {
   actualWord: 'actualWord',
   popActualWord: 'popActualWord',
   resetActualWord: 'resetActualWord',
+  addError: 'addError',
+  removeError: 'removeError',
 };
 
 export default types;

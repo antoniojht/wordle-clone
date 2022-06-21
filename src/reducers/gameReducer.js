@@ -16,6 +16,7 @@ const initialState = {
   life: 0,
   lettersUsed: [],
   isCorrect: false,
+  error: '',
 };
 
 // eslint-disable-next-line default-param-last
@@ -45,6 +46,18 @@ const gameReducer = (state = initialState, action) => {
         attemps: [...wordsCopy],
       };
     }
+
+    case types.addError:
+      return {
+        ...state,
+        error: action.payload.error,
+      };
+
+    case types.removeError:
+      return {
+        ...state,
+        error: '',
+      };
 
     default:
       return state;

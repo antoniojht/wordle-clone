@@ -5,11 +5,11 @@ import Grid from './components/grid/Grid';
 import Keyboard from './components/keyboard/Keyboard';
 
 import './app.css';
-import possibleWords from './helpers/possibleWords';
-import useKeyDown from './hooks/useKeydown';
+
+import useWrite from './hooks/useWrite';
 
 function App() {
-  const [error, handleKeyDown] = useKeyDown();
+  const [error, handleKeyDown] = useWrite();
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);

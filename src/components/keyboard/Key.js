@@ -5,9 +5,11 @@ import classNames from 'classnames';
 import { FaStepBackward } from 'react-icons/fa';
 
 import './keyboard.css';
+import useWrite from '../../hooks/useWrite';
 
 function Key({ letter }) {
   const letterUsed = useSelector((state) => state.game.lettersUsed);
+  const [, handleWrite] = useWrite();
 
   let obj = letterUsed.find((data) => data.letter === letter && data.position);
 
@@ -25,7 +27,7 @@ function Key({ letter }) {
   );
 
   return (
-    <button type="button" className={keyClass}>
+    <button type="button" className={keyClass} onClick={() => handleWrite(letter)}>
       {(letter === 'borrar') ? <FaStepBackward /> : letter.toUpperCase()}
     </button>
   );
