@@ -21,7 +21,6 @@ function App() {
   return (
     <div className="container">
       <Navbar />
-      <hr className="border" />
       {error && <div className="modal">{error}</div>}
       <Grid />
       <Keyboard />

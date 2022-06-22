@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react';
-
 import KeyRow from './KeyRow';
 import './keyboard.css';
 

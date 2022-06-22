@@ -1,21 +1,27 @@
 /* KEYBOARD */
 .keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   max-width: 500px;
+  max-height: 171px;
+  width: 100%;
 }
 
 /* ROW */
 .keyboard__row {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* KEY */
 .letter {
-  display: inline-block;
-  padding: 18px;
+  height: 56px;
+  width: auto;
   margin: 2px;
   background-color: #d3d6da;
   border-radius: 5px;
