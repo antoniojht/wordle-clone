@@ -37,7 +37,7 @@ const useWrite = () => {
         dispatch(resetActualWord());
         dispatch(addLetter());
       }
-    } else if (/^[a-zA-Z]{1}$/.test(letter) && actual.length < wordle.length) {
+    } else if (/^[a-zA-ZñÑ]{1}$/.test(letter) && actual.length < wordle.length) {
       dispatch(actualWord(letter));
     }
   };
