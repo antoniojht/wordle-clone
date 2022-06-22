@@ -36,10 +36,6 @@
 }
 
 .letter__enviar {
-  padding: 0px 20px;
-}
-
-.letter__borrar {
   grid-column: span 2;
 }
 

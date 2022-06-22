@@ -1,9 +1,10 @@
 import checkLetter from '../helpers/checkLetter';
 import checkWord from '../helpers/checkWord';
 import types from '../types/typesActions';
+import possibleWords from '../helpers/possibleWords';
 
 const initialState = {
-  wordle: 'amigo',
+  wordle: possibleWords[Math.floor(Math.random() * possibleWords.length)],
   attemps: [
     [], [], [], [], [], []],
   life: 0,
