@@ -35,6 +35,14 @@
   width: auto;
 }
 
+.letter__enviar {
+  padding: 0px 20px;
+}
+
+.letter__borrar {
+  grid-column: span 2;
+}
+
 .letter:hover {
   background-color: #E5E6E9;
 }

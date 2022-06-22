@@ -19,6 +19,8 @@ function Key({ letter }) {
   const keyClass = classNames(
     {
       letter: true,
+      letter__enviar: letter === 'enviar',
+      letter__borrar: letter === 'borrar',
       'letter--invalid': obj && !obj?.valid && !obj?.position,
       'letter--valid': obj?.valid && obj.position,
       'letter--position': obj?.valid && !obj.position,
