@@ -1,5 +1,5 @@
 import './navbar.css';
-import '../../app.css';
+import '../../App.css';
 
 import {
   FaQuestionCircle, FaSortDown, FaListAlt, FaTools,

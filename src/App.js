@@ -4,7 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import Grid from './components/grid/Grid';
 import Keyboard from './components/keyboard/Keyboard';
 
-import './app.css';
+import './App.css';
 
 import useWrite from './hooks/useWrite';
 
