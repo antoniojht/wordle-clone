@@ -26,9 +26,11 @@ const useWrite = () => {
     if (letter === 'Backspace' || letter === 'borrar') {
       dispatch(popActualWord());
     } else if ((letter === 'Enter' || letter === 'enviar') && life < attemps.length) {
-      if (possibleWords.length < wordle.length) {
+      if (actual.length < wordle.length) {
         dispatch(addError('La palabra es demasiado corta'));
-      } else if (!possibleWords.includes(actual.join(''))) {
+        return;
+      }
+      if (!possibleWords.includes(actual.join(''))) {
         dispatch(addError('La palabra no existe'));
         return;
       }

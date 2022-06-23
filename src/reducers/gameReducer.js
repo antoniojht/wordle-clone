@@ -1,10 +1,10 @@
 import checkLetter from '../helpers/checkLetter';
 import checkWord from '../helpers/checkWord';
 import types from '../types/typesActions';
-import possibleWords from '../helpers/possibleWords';
+import wordsToGuess from '../helpers/wordsToGuess';
 
 const initialState = {
-  wordle: possibleWords[Math.floor(Math.random() * possibleWords.length)],
+  wordle: wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)],
   attemps: [
     [], [], [], [], [], []],
   life: 0,
