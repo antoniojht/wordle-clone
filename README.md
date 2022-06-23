@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can test this app on [Wordle Clone](https://master--dapper-nasturtium-7a406c.netlify.app/)
 
 ## Available Scripts
 
